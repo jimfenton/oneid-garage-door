@@ -7,13 +7,14 @@ door opener using a OneID identity. A short demo can be seen on
 The application consists of three Python applications intended to run
 as CGI applications from a web server such as Apache:
 
-* garage.py - Displays a page at which the user signs in with OneID in
+* OneIDgarage.py - Displays a page at which the user signs in with OneID in
 order to operate (close or open) the garage door. Reads and displays
 the current state of the door from the Raspberry.
 
-* validate.py - Validates the user's sign in using the OneID Helper Service.
+* OneIDvalidate.py - Validates the user's sign in using the OneID Helper
+Service.
 
-* operate.py - Determines if the authenticated user is authorized to
+* OneIDoperate.py - Determines if the authenticated user is authorized to
 open the door, and if so, directs the Raspberry Pi to activate a
 relay to do so.  Logs the action in syslog.
 
@@ -21,6 +22,9 @@ It also includes:
 
 * GarageIcon.png, a garage door icon that is referenced by garage.py
 if bookmarking the sign in page on an iPhone.
+
+* GarageOpen.png and GarageClosed.png, images used to show the open and closed
+state of the door on the opening screen.
 
 * garageinterface.pdf and garageinterface.graffle, a schematic diagram for the interface hardware.
 
@@ -66,12 +70,12 @@ always recommended, you will need to obtain and install X.509
 certificates for the server.
 
 Write access to the directory containing the authorized user list,
-garage.cfg, is needed to add new authorized garage door operators.
+OneIDgarage.cfg, is needed to add new authorized garage door operators.
 
 ## Operation and Administration
 
 The garage door opener application maintains a list of authorized
-garage door operators in the file garage.cfg, which is a pickle
+garage door operators in the file OneIDgarage.cfg, which is a pickle
 archive. It initially has an empty list of authorized users.  To
 authorize a user, press and hold the Learn button (see schematic)
 while that user signs in and the user will be authorized for future
@@ -103,4 +107,8 @@ Some ideas for enhancements:
 
 * Initial version.
 
+### 0.1.1
 
+* Added open and closed icons to show door state more easily
+* Corrected script locations to use cgi-bin/ in pathnames
+* Added OneID to names of files in cgi-bin/ to distinguish them from non-OneID versions that may also be present in that directory
