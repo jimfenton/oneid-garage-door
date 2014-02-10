@@ -71,12 +71,16 @@ print """Content-Type: text/html
 <head>
   <title>Garage Door Opener</title>
   <meta name="viewport" content="width=device-width"/>
-  <link rel="apple-touch-icon" href="GarageIcon.png"/>
+  <link rel="apple-touch-icon" href="/GarageIcon.png"/>
 </head>
 <body>
 <div align="center">
-<img src="GarageIcon.png"/>
 """
+
+if state == "closed":
+   print '<img src="/GarageClosed.png"/>'
+else:
+   print '<img src="/GarageOpen.png"/>'
 
 print authn.script_header
 
@@ -84,6 +88,6 @@ print "<h1>Garage door is "+ state + "</h1>"
 
 print "<h2>Sign in with OneID to "+action+":</h2>"
 
-print authn.draw_signin_button("http://garage.bluepopcorn.net/validate.py?state="+state,"personal_info[first_name] personal_info[last_name]")
+print authn.draw_signin_button("http://garage.bluepopcorn.net/cgi-bin/validate.py?state="+state,"personal_info[first_name] personal_info[last_name]")
 
 print "</div></body></html>"

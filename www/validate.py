@@ -44,5 +44,5 @@ resp = authn.validate(line)
 
 sessionid = authn.save_session(resp)
 
-print authn.redirect('http://garage.bluepopcorn.net/operate.py', resp, sessionid)
+print authn.redirect('http://garage.bluepopcorn.net/cgi-bin/operate.py', resp, sessionid)
 
