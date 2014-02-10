@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# garage.py - Prompt page for garage door opener application
+# OneIDgarage.py - Prompt page for OneID-enabled garage door opener application
 #
 # Copyright (c) 2013 Jim Fenton
 #
@@ -88,6 +88,6 @@ print "<h1>Garage door is "+ state + "</h1>"
 
 print "<h2>Sign in with OneID to "+action+":</h2>"
 
-print authn.draw_signin_button("http://garage.bluepopcorn.net/cgi-bin/validate.py?state="+state,"personal_info[first_name] personal_info[last_name]")
+print authn.draw_signin_button("http://garage.bluepopcorn.net/cgi-bin/OneIDvalidate.py?state="+state,"personal_info[first_name] personal_info[last_name]")
 
 print "</div></body></html>"

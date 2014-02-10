@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# operate.py - Check authorization and operate the garage door
+# OneIDoperate.py - Check authorization and operate the OneID-enabled garage door
 #
 # Copyright (c) 2013 Jim Fenton
 #
@@ -63,7 +63,7 @@ if "sessionid" not in form:
    exit()
 
 try:
-   with open("garage.cfg","r") as f:
+   with open("OneIDgarage.cfg","r") as f:
       users = pickle.load(f)
       f.close()
 
@@ -110,7 +110,7 @@ elif mode == "false":  # LEARN mode
    else:
       users.append(sess["uid"])
       try:
-         with open("garage.cfg","w") as f:
+         with open("OneIDgarage.cfg","w") as f:
             pickle.dump(users, f)
             f.close()
             print "<h2>User authorization added</h2>"

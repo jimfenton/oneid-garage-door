@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# validate.py - validate OneID authentication result
+# OneIDvalidate.py - validate OneID authentication result
 #
 # Copyright (c) 2013 Jim Fenton
 #
@@ -44,5 +44,5 @@ resp = authn.validate(line)
 
 sessionid = authn.save_session(resp)
 
-print authn.redirect('http://garage.bluepopcorn.net/cgi-bin/operate.py', resp, sessionid)
+print authn.redirect('http://garage.bluepopcorn.net/cgi-bin/OneIDoperate.py', resp, sessionid)
 
